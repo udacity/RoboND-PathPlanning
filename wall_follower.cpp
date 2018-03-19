@@ -188,7 +188,7 @@ int main(int argc, char** argv)
     motor_command_publisher = n.advertise<geometry_msgs::Twist>("/robotactuate", 100);
 
     // Subscribe to the /scan topic and call the laser_callback function
-    laser_subscriber = n.subscribe("/scan", 1000, laser_callback);
+    laser_subscriber = n.subscribe("/laserscan", 1000, laser_callback);
 
     // Enter an infinite loop where the laser_callback function will be called when new laser messages arrive
     ros::Duration time_between_ros_wakeups(0.001);
