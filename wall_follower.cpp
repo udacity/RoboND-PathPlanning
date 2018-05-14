@@ -10,8 +10,6 @@
 #include <algorithm>
 #include <stack>
 
-#define ROBOT_SPEED 0.25 // Keep a low speed for the best results
-
 // ROS Publisher:Motor Commands, Subscriber:Laser Data, and Messages:Laser Messages & Motor Messages
 ros::Publisher motor_command_publisher;
 ros::Subscriber laser_subscriber;
@@ -32,6 +30,7 @@ typedef enum _ROBOT_MOVEMENT {
 
 // The robot_move function will be called by the laser_callback function each time a laser scan data is received
 // This function will accept robot movements and actuate the robot's wheels accordingly
+// Keep a low speed for better results
 bool robot_move(const ROBOT_MOVEMENT move_type)
 {
     if (move_type == STOP) {
